@@ -1,0 +1,26 @@
+{
+    // General
+    "layer": "top",
+    "output": "!DP-1",
+    "position": "top",
+
+    // Style
+    "height": 32,
+    "margin": "16px 16px 0px 16px",
+    "spacing": 8,
+    "reload_style_on_change": true,
+
+    // Modules
+    "modules-left": ["hyprland/workspaces", "mpd", "mpris"],
+    "modules-center": ["clock", "privacy"],
+    "modules-right": ["tray", "network", "bluetooth", "pulseaudio"],
+    
+    "clock": {
+        "format": "{:%a, %d. %b  %H:%M}",
+	"tooltip-format": "{calendar}"
+    },
+
+    "pulseaudio": {
+        "on-click": "hyprctl dispatch exec '[float; center; size 900 600] kitty -e wiremix --tab output'"
+    }
+}
