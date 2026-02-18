@@ -13,7 +13,7 @@
   // Modules
   "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock", "privacy"],
-  "modules-right": ["tray", "network", "bluetooth", "pulseaudio"],
+  "modules-right": ["tray", "network", "bluetooth", "pulseaudio", "custom/notification"],
 
   // Left
   "hyprland/workspaces": {
@@ -98,5 +98,26 @@
     "scroll-step": 5,
 
     "on-click": "hyprctl dispatch exec '[float; center; size 1200 900] kitty -e wiremix --tab output'"
+  },
+
+  "custom/notification": {
+    "tooltip": true,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "󱅫",
+      "none": "󰂜",
+      "dnd-notification": "󰂠",
+      "dnd-none": "󰪓",
+      "inhibited-notification": "󰂛",
+      "inhibited-none": "󰪑",
+      "dnd-inhibited-notification": "󰂛",
+      "dnd-inhibited-none": "󰪑"
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -sw",
+    "on-click-right": "swaync-client -d -sw",
+    "escape": true
   }
 }
