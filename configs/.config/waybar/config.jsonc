@@ -1,26 +1,92 @@
 {
-    // General
-    "layer": "top",
-    "output": "!DP-1",
-    "position": "top",
+  // General
+  "layer": "top",
+  "output": "!DP-1",
+  "position": "top",
 
-    // Style
-    "height": 32,
-    "margin": "16px 16px 0px 16px",
-    "spacing": 8,
-    "reload_style_on_change": true,
+  // Style
+  "height": 32,
+  "margin": "16px 16px 0px 16px",
+  "spacing": 8,
+  "reload_style_on_change": true,
 
-    // Modules
-    "modules-left": ["hyprland/workspaces", "mpd", "mpris"],
-    "modules-center": ["clock", "privacy"],
-    "modules-right": ["tray", "network", "bluetooth", "pulseaudio"],
-    
-    "clock": {
-        "format": "{:%a, %d. %b  %H:%M}",
-	"tooltip-format": "{calendar}"
+  // Modules
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["clock", "privacy"],
+  "modules-right": ["tray", "network", "bluetooth", "pulseaudio"],
+
+  // Left
+  "hyprland/workspaces": {
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+      "default": "",
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "0",
+      "active": "󱓻"
+    },
+    "persistent-workspaces": {
+      "1": [],
+      "2": [],
+      "3": [],
+      "4": [],
+      "5": []
+    }
+  },
+
+  // Center
+  "clock": {
+    "format": "{:%a, %d. %b  %H:%M}",
+    "tooltip-format": "{calendar}"
+  },
+
+  // Right
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+
+  "network": {
+    "format-icons": ["󰤯", "󰤟", "󰤢", "󰤥", "󰤨"],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)\n⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-ethernet": "⇣{bandwidthDownBytes}  ⇡{bandwidthUpBytes}",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "hyprctl dispatch exec '[float; center; size 1200 900] kitty -e impala'"
+  },
+
+  "bluetooth": {
+    "format": "",
+    "format-off": "󰂲",
+    "format-disabled": "󰂲",
+    "format-connected": "󰂱",
+    "format-no-controller": "",
+    "tooltip-format": "Devices connected: {num_connections}",
+    "on-click": "hyprctl dispatch exec '[float; center; size 1200 900] kitty -e bluetui'"
+  },
+
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", "", ""] 
     },
 
-    "pulseaudio": {
-        "on-click": "hyprctl dispatch exec '[float; center; size 900 600] kitty -e wiremix --tab output'"
-    }
+    "scroll-step": 5,
+
+    "on-click": "hyprctl dispatch exec '[float; center; size 1200 900] kitty -e wiremix --tab output'"
+  }
 }

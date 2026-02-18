@@ -3,14 +3,36 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: 'JetBrainsMono Nerd Font';
+    font-family: 'JetBrainsMono Nerd Font Propo';
     font-size: 14px;
     min-height: 0;
 }
 
-window#waybar {
+#waybar {
     background: @surface;
     color: @text;
     border-radius: 8px;
     border: 1px solid @overlay;
+}
+
+tooltip {
+  border: 1px solid @overlay;
+  border-radius: 8px;
+}
+
+box.modules-left,
+box.modules-right {
+  margin: 0 16px;
+}
+
+.modules-left label,
+.modules-right label {
+  min-width: 32px;
+  font-size: 16px;
+}
+
+.modules-left label:hover,
+.modules-right label:hover {
+  background: @highlightMed;
+  border-radius: 16px;
 }
