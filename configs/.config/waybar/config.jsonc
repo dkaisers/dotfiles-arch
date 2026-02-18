@@ -11,7 +11,7 @@
   "reload_style_on_change": true,
 
   // Modules
-  "modules-left": ["hyprland/workspaces"],
+  "modules-left": ["hyprland/workspaces", "mpris"],
   "modules-center": ["clock", "privacy"],
   "modules-right": ["tray", "network", "bluetooth", "pulseaudio"],
 
@@ -40,6 +40,16 @@
       "4": [],
       "5": []
     }
+  },
+  "mpris": {
+    "player": "spotify",
+    "format": "{status_icon} {artist} - {title}",
+    "format-paused": "{status_icon} {artist} - {title}",
+    "format-stopped": "{player_icon}",
+    "status-icons": {
+      "playing": "",
+      "paused": "",
+    },
   },
 
   // Center
