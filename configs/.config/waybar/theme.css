@@ -7,8 +7,8 @@
 @define-color surface         #1f1d2e;
 @define-color overlay         #26233a;
 
-@define-color base-clear      rgba(25, 23, 36, 0.8);
-@define-color surface-clear   rgba(31, 29, 46, 0.8);
+@define-color base-clear      rgba(25, 23, 36, 0.85);
+@define-color surface-clear   rgba(31, 29, 46, 0.85);
 
 @define-color muted           #6e6a86;
 @define-color subtle          #908caa;
