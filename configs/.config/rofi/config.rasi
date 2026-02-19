@@ -1,5 +1,11 @@
 @import "default"
 
+configuration {
+  modes: [drun,window];
+  show-icons: true;
+  sidebar-mode: true;
+}
+
 * {
 	bg: #191724;
 	cur: #1f1d2e;
