@@ -3,36 +3,42 @@
 * {
     border: none;
     border-radius: 0;
-    font-family: 'JetBrains Mono', 'Font Awesome 7 Free';
-    font-size: 14px;
+    font-family: 'JetBrainsMono NerdFont Propo', 'Font Awesome 7 Free';
+    font-size: 16px;
     min-height: 0;
 }
 
 #waybar {
     background: @base-clear;
     color: @text;
-    border-radius: 8px;
+    border-radius: 16px;
     border: 1px solid @overlay;
 }
 
 tooltip {
+  background: @base-clear;
   border: 1px solid @overlay;
   border-radius: 8px;
 }
 
 box.modules-left,
 box.modules-right {
+  padding: 1px 0;
   margin: 0 16px;
 }
 
-.modules-left label,
+.modules-left button,
 .modules-right label {
+  padding: 0;
   min-width: 32px;
   font-size: 16px;
+  transition: none;
 }
 
-.modules-left label:hover,
+.modules-left button:hover,
 .modules-right label:hover {
-  background: @highlightMed;
+  background: @rose;
+  color: @highlightMed;
   border-radius: 16px;
+  transition: none;
 }

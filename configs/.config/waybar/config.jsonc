@@ -20,7 +20,7 @@
     "on-click": "activate",
     "format": "{icon}",
     "format-icons": {
-      "default": "",
+      "default": "",
       "active": ""
     },
     "all-outputs": true
@@ -89,7 +89,7 @@
     "format": "{icon}",
     "format-icons": {
       "notification": "󱅫",
-      "none": "󰂜",
+      "none": "",
       "dnd-notification": "󰂠",
       "dnd-none": "󰪓",
       "inhibited-notification": "󰂛",
