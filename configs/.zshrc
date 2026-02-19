@@ -2,7 +2,11 @@ eval "$(starship init zsh)"
 
 alias ls="exa"
 alias ll="exa -la"
+
 alias ..="cd .."
+
+alias vim="nvim"
+alias vi="nvim"
 
 source /usr/share/zsh/share/antigen.zsh
 
