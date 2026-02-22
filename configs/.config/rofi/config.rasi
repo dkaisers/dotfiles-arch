@@ -1,7 +1,7 @@
 @import "default"
 
 configuration {
-  modes: [drun,window,power];
+  modes: [drun,window,settings,power];
   show-icons: true;
   sidebar-mode: true;
 }

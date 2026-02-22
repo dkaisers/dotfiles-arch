@@ -78,6 +78,35 @@ find_configs() {
     find "$CONFIGS_DIR" -type f -o -type l | sort
 }
 
+# Remove broken symlinks pointing to dotfiles
+remove_broken_links() {
+    log_info "Removing broken symlinks..."
+    
+    local count=0
+    
+    # Find symlinks in ~ and ~/.config that point to dotfiles
+    while IFS= read -r link_path; do
+        local link_target
+        link_target="$(readlink "$link_path")"
+        
+        # Check if it points into dotfiles
+        if [[ "$link_target" == "$DOTFILES_DIR"* ]]; then
+            # Check if broken
+            if [[ ! -e "$link_target" ]]; then
+                log_warn "Removing broken symlink: ${link_path#$HOME/}"
+                rm "$link_path"
+                count=$((count + 1))
+            fi
+        fi
+    done < <(find "$HOME" -maxdepth 1 -type l; find "$HOME/.config" -type l 2>/dev/null)
+    
+    if [[ $count -gt 0 ]]; then
+        log_success "Removed $count broken symlink(s)"
+    else
+        log_info "No broken symlinks found"
+    fi
+}
+
 # Main installation
 main() {
     if [[ ! -d "$CONFIGS_DIR" ]]; then
@@ -87,6 +116,9 @@ main() {
 
     log_info "Installing dotfiles from $CONFIGS_DIR"
     log_info "Target home directory: $HOME"
+    echo
+
+    remove_broken_links
     echo
 
     local count=0
